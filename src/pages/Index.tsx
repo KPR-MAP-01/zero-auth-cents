@@ -5,8 +5,10 @@ import { Dashboard } from '@/components/Dashboard';
 import { ExpenseChart } from '@/components/ExpenseChart';
 import { SettingsCard } from '@/components/SettingsCard';
 import { Expense, getExpenses, saveExpenses, getSettings, saveSettings } from '@/utils/localStorage';
-import { Wallet } from 'lucide-react';
+import { Wallet, Presentation } from 'lucide-react';
 import { toast } from 'sonner';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
@@ -65,14 +67,22 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <header className="border-b bg-card">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-primary/10">
-              <Wallet className="h-8 w-8 text-primary" />
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-primary/10">
+                <Wallet className="h-8 w-8 text-primary" />
+              </div>
+              <div>
+                <h1 className="text-3xl font-bold">Daily Expense Tracker</h1>
+                <p className="text-muted-foreground">Track, analyze, and manage your daily expenses</p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-3xl font-bold">Daily Expense Tracker</h1>
-              <p className="text-muted-foreground">Track, analyze, and manage your daily expenses</p>
-            </div>
+            <Link to="/presentation">
+              <Button variant="outline" className="gap-2">
+                <Presentation className="h-4 w-4" />
+                View Presentation
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
