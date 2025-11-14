@@ -64,7 +64,7 @@ export const ExpenseList = ({ expenses, onEdit, onDelete }: ExpenseListProps) =>
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-xl font-bold text-primary">
-                  ${expense.amount.toFixed(2)}
+                  ₹{expense.amount.toFixed(2)}
                 </span>
                 <div className="flex gap-1">
                   <Button
