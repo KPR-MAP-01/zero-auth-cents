@@ -43,7 +43,7 @@ export const Dashboard = ({ expenses, dailyLimit }: DashboardProps) => {
           <AlertCircle className="h-4 w-4" />
           <AlertDescription>
             {isOverLimit
-              ? `You've exceeded your daily limit by $${(todayTotal - dailyLimit).toFixed(2)}!`
+              ? `You've exceeded your daily limit by ₹${(todayTotal - dailyLimit).toFixed(2)}!`
               : `You're at ${limitPercentage.toFixed(0)}% of your daily limit. Consider your spending!`}
           </AlertDescription>
         </Alert>
@@ -56,12 +56,12 @@ export const Dashboard = ({ expenses, dailyLimit }: DashboardProps) => {
             <Calendar className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-primary">${todayTotal.toFixed(2)}</div>
+            <div className="text-2xl font-bold text-primary">₹{todayTotal.toFixed(2)}</div>
             {dailyLimit > 0 && (
               <div className="mt-2 space-y-1">
                 <Progress value={Math.min(limitPercentage, 100)} className="h-2" />
                 <p className="text-xs text-muted-foreground">
-                  ${dailyLimit.toFixed(2)} daily limit
+                  ₹{dailyLimit.toFixed(2)} daily limit
                 </p>
               </div>
             )}
@@ -74,7 +74,7 @@ export const Dashboard = ({ expenses, dailyLimit }: DashboardProps) => {
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-primary">${weekTotal.toFixed(2)}</div>
+            <div className="text-2xl font-bold text-primary">₹{weekTotal.toFixed(2)}</div>
             <p className="text-xs text-muted-foreground mt-1">
               {format(weekStart, 'MMM dd')} - {format(weekEnd, 'MMM dd')}
             </p>
@@ -87,7 +87,7 @@ export const Dashboard = ({ expenses, dailyLimit }: DashboardProps) => {
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-primary">${totalExpenses.toFixed(2)}</div>
+            <div className="text-2xl font-bold text-primary">₹{totalExpenses.toFixed(2)}</div>
             <p className="text-xs text-muted-foreground mt-1">
               {expenses.length} transaction{expenses.length !== 1 ? 's' : ''}
             </p>
@@ -100,10 +100,10 @@ export const Dashboard = ({ expenses, dailyLimit }: DashboardProps) => {
             <Target className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-primary">${averageDaily.toFixed(2)}</div>
+            <div className="text-2xl font-bold text-primary">₹{averageDaily.toFixed(2)}</div>
             {highestCategory && (
               <p className="text-xs text-muted-foreground mt-1">
-                Top: {highestCategory[0]} (${highestCategory[1].toFixed(2)})
+                Top: {highestCategory[0]} (₹{highestCategory[1].toFixed(2)})
               </p>
             )}
           </CardContent>

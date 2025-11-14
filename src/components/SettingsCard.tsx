@@ -35,7 +35,7 @@ export const SettingsCard = ({ dailyLimit, onUpdateLimit }: SettingsCardProps) =
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="dailyLimit">Daily Spending Limit ($)</Label>
+            <Label htmlFor="dailyLimit">Daily Spending Limit (₹)</Label>
             <Input
               id="dailyLimit"
               type="number"

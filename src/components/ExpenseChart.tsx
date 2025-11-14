@@ -60,7 +60,7 @@ export const ExpenseChart = ({ expenses }: ExpenseChartProps) => {
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip formatter={(value: number) => `$${value.toFixed(2)}`} />
+              <Tooltip formatter={(value: number) => `₹${value.toFixed(2)}`} />
             </PieChart>
           </ResponsiveContainer>
         </CardContent>
@@ -80,8 +80,8 @@ export const ExpenseChart = ({ expenses }: ExpenseChartProps) => {
               />
               <YAxis />
               <Tooltip 
-                formatter={(value: number) => `$${value.toFixed(2)}`}
-                labelFormatter={(value) => new Date(value).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                formatter={(value: number) => `₹${value.toFixed(2)}`}
+                labelFormatter={(value) => new Date(value).toLocaleDateString('en-IN', { month: 'long', day: 'numeric', year: 'numeric' })}
               />
               <Bar dataKey="amount" fill="hsl(var(--primary))" />
             </BarChart>
